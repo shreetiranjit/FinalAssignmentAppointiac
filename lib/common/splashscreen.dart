@@ -23,7 +23,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
       // navigate to the main screen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const WelcomePageOne()),
+        MaterialPageRoute(builder: (context) => WelcomePageOne()),
       );
     });
   }
