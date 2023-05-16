@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
         body: LoadingAnimation(),
         // drawer: NavBar(),
       ),
+      
+      
     );
   }
 }
