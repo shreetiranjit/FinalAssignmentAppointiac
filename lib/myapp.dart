@@ -1,6 +1,6 @@
+import 'package:appointiac/common/splashscreen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Appointiac',
       home: const Scaffold(
-        // body: LoadingAnimation(),
+        body: LoadingAnimation(),
         // drawer: NavBar(),
       ),
     );

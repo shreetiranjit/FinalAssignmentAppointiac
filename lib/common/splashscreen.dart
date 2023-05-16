@@ -1,3 +1,4 @@
+import 'package:appointiac/features/welcomepage/welcomepage_one.dart';
 import 'package:flutter/material.dart';
 
 class LoadingAnimation extends StatefulWidget {
@@ -22,7 +23,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
       // navigate to the main screen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const WelcomePage()),
+        MaterialPageRoute(builder: (context) => const WelcomePageOne()),
       );
     });
   }
