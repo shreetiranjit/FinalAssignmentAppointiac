@@ -1,3 +1,4 @@
+import 'package:appointiac/features/authentication/landing_page/landing_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePageOne extends StatefulWidget {
@@ -43,31 +44,42 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
                 },
                 itemCount: _imagesList.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    color: Colors.white,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            _imagesList[index],
-                            height: 0.4 * screenHeight,
-                            width: 0.6 * screenWidth,
-                          ),
-                          ..._textList[index].map((text) => Padding(
-                                padding:
-                                    EdgeInsets.only(top: 0.02 * screenHeight),
-                                child: Text(
-                                  text,
-                                  style: TextStyle(
-                                    fontFamily: "grotesco",
-                                    fontSize: 0.047 * screenHeight,
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      double localHeight = constraints.maxHeight;
+                      double localWidth = constraints.maxWidth;
+                      return Container(
+                        color: Colors.white,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              AspectRatio(
+                                aspectRatio: 1,
+                                child: SizedBox(
+                                  width: localWidth * 0.6,
+                                  child: Image.asset(
+                                    _imagesList[index],
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
-                              ))
-                        ],
-                      ),
-                    ),
+                              ),
+                              ..._textList[index].map((text) => Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 0.02 * localHeight),
+                                    child: Text(
+                                      text,
+                                      style: TextStyle(
+                                        fontFamily: "grotesco",
+                                        fontSize: 0.047 * localHeight,
+                                      ),
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -93,9 +105,17 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
                         backgroundColor: Colors.white,
                         elevation: 0,
                         onPressed: () {
-                          _pageController.nextPage(
+                          if (_currentPage == _imagesList.length - 1) {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LandingPage()));
+                          } else {
+                            _pageController.nextPage(
                               duration: const Duration(milliseconds: 400),
-                              curve: Curves.easeIn);
+                              curve: Curves.easeIn,
+                            );
+                          }
                         },
                         child: Icon(Icons.arrow_forward_ios,
                             size: 0.05 * screenHeight,
@@ -117,7 +137,7 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
       duration: const Duration(milliseconds: 300),
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
       height: 10.0,
-      width: _currentPage == index ? 25.0 : 10.0,
+      width: _currentPage == index ? 15.0 : 15.0,
       decoration: BoxDecoration(
         color: _currentPage == index ? const Color(0xFFFF6C3F) : Colors.grey,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
