@@ -90,14 +90,16 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        elevation: 0,
                         onPressed: () {
                           _pageController.nextPage(
                               duration: const Duration(milliseconds: 400),
                               curve: Curves.easeIn);
                         },
-                        backgroundColor: const Color.fromARGB(255, 255, 85, 0),
                         child: Icon(Icons.arrow_forward_ios,
-                            size: 0.05 * screenHeight), // 5% of screen height
+                            size: 0.05 * screenHeight,
+                            color: const Color(0xFFFF6C3F)),
                       ),
                     ),
                   ),
@@ -117,9 +119,7 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
       height: 10.0,
       width: _currentPage == index ? 25.0 : 10.0,
       decoration: BoxDecoration(
-        color: _currentPage == index
-            ? const Color.fromARGB(223, 255, 42, 0)
-            : Colors.grey,
+        color: _currentPage == index ? const Color(0xFFFF6C3F) : Colors.grey,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
