@@ -48,35 +48,33 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
                     builder: (context, constraints) {
                       double localHeight = constraints.maxHeight;
                       double localWidth = constraints.maxWidth;
-                      return Container(
-                        color: Colors.white,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              AspectRatio(
-                                aspectRatio: 1,
-                                child: SizedBox(
-                                  width: localWidth * 0.6,
-                                  child: Image.asset(
-                                    _imagesList[index],
-                                    fit: BoxFit.contain,
-                                  ),
+                      return SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              width: localWidth * 0.7,
+                              height:
+                                  localHeight * 0.65, // Adjust this as needed
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage(_imagesList[index]),
                                 ),
                               ),
-                              ..._textList[index].map((text) => Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 0.02 * localHeight),
-                                    child: Text(
-                                      text,
-                                      style: TextStyle(
-                                        fontFamily: "grotesco",
-                                        fontSize: 0.047 * localHeight,
-                                      ),
+                            ),
+                            ..._textList[index].map((text) => Padding(
+                                  padding:
+                                      EdgeInsets.only(top: 0.02 * localHeight),
+                                  child: Text(
+                                    text,
+                                    style: TextStyle(
+                                      fontFamily: "grotesco",
+                                      fontSize: 0.047 * localHeight,
                                     ),
-                                  ))
-                            ],
-                          ),
+                                  ),
+                                ))
+                          ],
                         ),
                       );
                     },

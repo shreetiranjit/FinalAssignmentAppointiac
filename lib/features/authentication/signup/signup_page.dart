@@ -2,7 +2,6 @@ import 'package:appointiac/features/authentication/login/login_page.dart';
 import 'package:appointiac/utils/auth_service.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -77,15 +76,12 @@ class SignupPageState extends State<SignupPage> {
                           child: Center(
                             child: Text(
                               'Hello',
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: TextStyle(
-                                  fontSize: 35 *
-                                      MediaQuery.of(context).textScaleFactor,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 255, 108, 63),
-                                ),
+                              style: TextStyle(
+                                fontSize:
+                                    35 * MediaQuery.of(context).textScaleFactor,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "grotesco",
+                                color: const Color(0xFFFF6C3F),
                               ),
                             ),
                           ),
@@ -95,15 +91,12 @@ class SignupPageState extends State<SignupPage> {
                           child: Center(
                             child: Text(
                               "Let's get started!",
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: TextStyle(
-                                  fontSize: 35 *
-                                      MediaQuery.of(context).textScaleFactor,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 255, 108, 63),
-                                ),
+                              style: TextStyle(
+                                fontSize:
+                                    35 * MediaQuery.of(context).textScaleFactor,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "grotesco",
+                                color: const Color(0xFFFF6C3F),
                               ),
                             ),
                           ),
@@ -119,7 +112,7 @@ class SignupPageState extends State<SignupPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 108, 63),
+                    color: Color(0xFFFF6C3F),
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(24)),
                   ),
@@ -131,16 +124,14 @@ class SignupPageState extends State<SignupPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(height: 5.0),
-                          Center(
+                          const Center(
                             child: Text(
                               'Sign up',
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: const TextStyle(
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 17, 17, 17),
-                                ),
+                              style: TextStyle(
+                                fontSize: 27,
+                                fontFamily: "grotesco-medium",
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 17, 17, 17),
                               ),
                             ),
                           ),
@@ -176,7 +167,9 @@ class SignupPageState extends State<SignupPage> {
                           const Text(
                             'Username*',
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "grotesco"),
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
@@ -270,7 +263,9 @@ class SignupPageState extends State<SignupPage> {
                               Text(
                                 "We'll take care of your Privacy. ",
                                 style: TextStyle(
-                                    fontSize: 16, color: Colors.white),
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontFamily: "grotesco-medium"),
                               ),
                             ],
                           ),

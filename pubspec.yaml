@@ -77,6 +77,14 @@ flutter:
     - family: grotesco
       fonts:
         - asset: fonts/grotesco-bold.ttf
+    - family: grotesco-slim
+      fonts:
+        - asset: fonts/grotesco-light.ttf
+    - family: grotesco-medium
+      fonts:
+        - asset: fonts/grotesco-medium.ttf
+      
+        
     # - family: Trajan Pro
     #   fonts:
     #     - asset: fonts/TrajanPro.ttf

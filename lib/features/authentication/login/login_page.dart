@@ -87,15 +87,12 @@ class LoginPageState extends State<LoginPage> {
                           child: Center(
                             child: Text(
                               'Hello',
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: TextStyle(
-                                  fontSize: 35 *
-                                      MediaQuery.of(context).textScaleFactor,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 255, 108, 63),
-                                ),
+                              style: TextStyle(
+                                fontSize:
+                                    35 * MediaQuery.of(context).textScaleFactor,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "grotesco",
+                                color: const Color.fromARGB(255, 255, 108, 63),
                               ),
                             ),
                           ),
@@ -105,15 +102,12 @@ class LoginPageState extends State<LoginPage> {
                           child: Center(
                             child: Text(
                               'Welcome back!!!',
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: TextStyle(
-                                  fontSize: 35 *
-                                      MediaQuery.of(context).textScaleFactor,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 255, 108, 63),
-                                ),
+                              style: TextStyle(
+                                fontSize:
+                                    35 * MediaQuery.of(context).textScaleFactor,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "grotesco",
+                                color: const Color(0xFFFF6C3F),
                               ),
                             ),
                           ),
@@ -129,7 +123,7 @@ class LoginPageState extends State<LoginPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 108, 63),
+                    color: Color(0xFFFF6C3F),
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(24)),
                   ),
@@ -141,23 +135,23 @@ class LoginPageState extends State<LoginPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(height: 5.0),
-                          Center(
+                          const Center(
                             child: Text(
                               'Log in',
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                textStyle: const TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "grotesco",
                               ),
                             ),
                           ),
                           const SizedBox(height: 32.0),
-                          Text(
+                          const Text(
                             'Email*',
-                            style: GoogleFonts.getFont(
-                              'Roboto',
-                              textStyle: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "grotesco-medium",
                             ),
                           ),
                           TextFormField(
@@ -183,12 +177,12 @@ class LoginPageState extends State<LoginPage> {
                             onSaved: (value) => _email = value!,
                           ),
                           const SizedBox(height: 32.0),
-                          Text(
+                          const Text(
                             'Password*',
-                            style: GoogleFonts.getFont(
-                              'Roboto',
-                              textStyle: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "grotesco-medium",
                             ),
                           ),
                           TextFormField(
@@ -243,8 +237,9 @@ class LoginPageState extends State<LoginPage> {
                                   'Roboto',
                                   textStyle: const TextStyle(
                                       fontSize: 20,
+                                      fontFamily: "grotesco",
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 255, 108, 63)),
+                                      color: Color(0xFFFF6C3F)),
                                 ),
                               ),
                             ),
@@ -260,16 +255,14 @@ class LoginPageState extends State<LoginPage> {
                               ),
                               GestureDetector(
                                 onTap: () => navigateToSignup(context),
-                                child: Text(
+                                child: const Text(
                                   'Sign up',
-                                  style: GoogleFonts.getFont(
-                                    'Roboto',
-                                    textStyle: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.underline),
-                                  ),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "grotesco",
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.underline),
                                 ),
                               ),
                             ],

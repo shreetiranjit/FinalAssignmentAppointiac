@@ -23,6 +23,8 @@ class MyHomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final buttonWidth = MediaQuery.of(context).size.width * 0.8;
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -31,78 +33,121 @@ class MyHomePage extends HookWidget {
               minHeight: MediaQuery.of(context).size.height,
             ),
             child: IntrinsicHeight(
-              child: FractionallySizedBox(
-                widthFactor: 1.0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      flex: 6,
-                      child: Container(
-                        color: Colors.white,
+              child: Column(
+                children: [
+                  Flexible(
+                    flex: 3,
+                    child: Container(
+                      color: const Color(0xFFFAFAFA),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: screenwidth * 0.4,
+                            height: screenwidth * 0.2, // Adjust this as needed
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: AssetImage('assets/logo.png'),
+                              ),
+                            ),
+                          ),
+                          // Replace this with the path to your logo
+                          const Text(
+                            'Appointiac',
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'grotesco',
+                              color: Color(0xFFFF6C3F),
+                            ),
+                          ),
+                          const Text(
+                            'A smarter way to schedule',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'grotesco-slim',
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFFFF6C3F),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Flexible(
-                      flex: 5,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 255, 108, 63),
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(30),
-                          ),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GradientButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SignupPage()),
-                                  );
-                                },
-                                text: 'Create an account',
-                                width: buttonWidth,
-                              ),
-                              const SizedBox(height: 16),
-                              GradientButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoginPage()),
-                                  );
-                                },
-                                text: 'Login',
-                                width: buttonWidth,
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                'or login with',
-                                style: GoogleFonts.getFont(
-                                  'Roboto',
-                                  textStyle: const TextStyle(
-                                      fontSize: 23,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              GoogleLoginButton(
-                                onPressed: () {
-                                  // print('Login with Google Pressed');
-                                },
-                              ),
-                            ],
-                          ),
+                  ),
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFFF6C3F),
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(30),
                         ),
                       ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            'Welcome to Appointiac',
+                            style: TextStyle(
+                                fontSize: 23,
+                                fontFamily: 'grotesco',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'Effortlessly manage your schedule with Appointiac - The marketplace for auctioning time slots.',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'grotesco-medium',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 16),
+                          GradientButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignupPage()),
+                              );
+                            },
+                            text: 'Create an account',
+                            width: buttonWidth,
+                          ),
+                          const SizedBox(height: 16),
+                          GradientButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()),
+                              );
+                            },
+                            text: 'Login',
+                            width: buttonWidth,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            'By Continue, you’re agree to Appointaic Privacy policy and Term of use',
+                            style: GoogleFonts.getFont(
+                              'Roboto',
+                              textStyle: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -126,69 +171,23 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-        width: width,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          gradient: const LinearGradient(
-            colors: [
-              Color.fromARGB(255, 250, 217, 217),
-              Color(0xFFFFFFFF),
-            ],
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.getFont(
-              'Roboto',
-              textStyle: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class GoogleLoginButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const GoogleLoginButton({super.key, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/google_logo.png', // Replace this with the path to the Google logo asset
-              height: 20,
-            ),
-            const SizedBox(width: 10),
-            Text(
-              'Google',
-              style: GoogleFonts.openSans(
-                textStyle: const TextStyle(fontSize: 18, color: Colors.black),
-              ),
-            ),
-          ],
-        ),
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all(
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 10)),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+          minimumSize: MaterialStateProperty.all(Size(width, 0))),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontFamily: 'grotesco'),
       ),
     );
   }
