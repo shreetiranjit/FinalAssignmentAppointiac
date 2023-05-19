@@ -1,4 +1,5 @@
 import 'package:appointiac/features/navbar/navbar.dart';
+import 'package:appointiac/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../common/market_cards_common.dart';
 import '../../data/serviceprovider.dart';
@@ -30,12 +31,13 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
+          toolbarHeight: 70,
           backgroundColor: const Color.fromARGB(255, 255, 250, 250),
           elevation: 0,
           leading: IconButton(
             icon: const Icon(
               Icons.menu,
-              color: Color(0xFFFF6C3F),
+              color: primaryColor,
             ),
             onPressed: () {
               _scaffoldKey.currentState!.openDrawer();
@@ -71,60 +73,59 @@ class _DashboardPageState extends State<DashboardPage> {
           ],
         ),
         drawer: const NavBar(),
-        body: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: screenHeight * 0.06,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 6,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          setState(() {
-                            selectedIndex = index;
-                          });
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: screenHeight * 0.06,
+                margin: const EdgeInsets.only(bottom: 8.0),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: selectedIndex == index
+                              ? primaryColor
+                              : const Color(0xFFD9D9D9),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Item $index',
+                          style: TextStyle(
                             color: selectedIndex == index
-                                ? const Color(0xFFFF6C3F)
-                                : const Color(0xFFD9D9D9),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Item $index',
-                            style: TextStyle(
-                              color: selectedIndex == index
-                                  ? Colors.white
-                                  : Colors.black,
-                              fontSize:
-                                  MediaQuery.of(context).textScaleFactor * 16,
-                            ),
+                                ? Colors.white
+                                : Colors.black,
+                            fontSize:
+                                MediaQuery.of(context).textScaleFactor * 16,
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
-                SingleChildScrollView(
+              ),
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
                   child: Column(
                     children: [
                       marketCards(serviceProviders, currentCardIndices, context,
                           screenHeight, changeCardIndex),
                     ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),

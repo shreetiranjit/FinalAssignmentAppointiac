@@ -1,3 +1,4 @@
+import 'package:appointiac/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,7 +18,7 @@ class _NavBarState extends State<NavBar> {
       builder: (BuildContext context, BoxConstraints constraints) {
         return Drawer(
           child: Container(
-            color: const Color(0xFFFF6C3F),
+            color: primaryColor,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 17),
               child: Column(
@@ -26,7 +27,7 @@ class _NavBarState extends State<NavBar> {
                     alignment: Alignment.centerLeft,
                     child: Container(
                       height: constraints.maxHeight * 0.15,
-                      color: const Color(0xFFFF6C3F),
+                      color: primaryColor,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(

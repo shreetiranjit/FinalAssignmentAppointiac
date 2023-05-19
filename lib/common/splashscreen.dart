@@ -1,4 +1,5 @@
 import 'package:appointiac/features/welcomepage/welcomepage_one.dart';
+import 'package:appointiac/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoadingAnimation extends StatefulWidget {
@@ -23,7 +24,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
       // navigate to the main screen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomePageOne()),
+        MaterialPageRoute(builder: (context) => const WelcomePageOne()),
       );
     });
   }
@@ -43,7 +44,7 @@ class LoadingAnimationState extends State<LoadingAnimation>
           'assets/loading_image.png',
           width: 100,
           height: 200,
-          color: const Color(0xFFFF6C3F),
+          color: primaryColor,
         ),
       ),
     );

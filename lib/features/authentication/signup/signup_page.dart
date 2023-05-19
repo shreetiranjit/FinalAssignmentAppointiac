@@ -1,5 +1,6 @@
 import 'package:appointiac/features/authentication/login/login_page.dart';
 import 'package:appointiac/utils/auth_service.dart';
+import 'package:appointiac/utils/colors.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class SignupPageState extends State<SignupPage> {
           leading: IconButton(
             icon: const Icon(
               Icons.arrow_back,
-              color: Color(0xFFFF6C3F),
+              color: primaryColor,
             ),
             onPressed: () {
               print("Pressed");
@@ -81,7 +82,7 @@ class SignupPageState extends State<SignupPage> {
                                     35 * MediaQuery.of(context).textScaleFactor,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "grotesco",
-                                color: const Color(0xFFFF6C3F),
+                                color:  primaryColor,
                               ),
                             ),
                           ),
@@ -96,7 +97,7 @@ class SignupPageState extends State<SignupPage> {
                                     35 * MediaQuery.of(context).textScaleFactor,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "grotesco",
-                                color: const Color(0xFFFF6C3F),
+                                color:  primaryColor,
                               ),
                             ),
                           ),
@@ -112,7 +113,7 @@ class SignupPageState extends State<SignupPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
                   decoration: const BoxDecoration(
-                    color: Color(0xFFFF6C3F),
+                    color: primaryColor,
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(24)),
                   ),

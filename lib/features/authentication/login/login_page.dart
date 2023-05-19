@@ -2,6 +2,7 @@ import 'package:appointiac/features/authentication/landing_page/landing_page.dar
 import 'package:appointiac/features/authentication/signup/signup_page.dart';
 import 'package:appointiac/features/dashboard/dashboard_page.dart';
 import 'package:appointiac/utils/auth_service.dart';
+import 'package:appointiac/utils/colors.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +55,7 @@ class LoginPageState extends State<LoginPage> {
           leading: IconButton(
             icon: const Icon(
               Icons.arrow_back,
-              color: Color(0xFFFF6C3F),
+              color: primaryColor,
             ),
             onPressed: () {
               Navigator.push(
@@ -107,7 +108,7 @@ class LoginPageState extends State<LoginPage> {
                                     35 * MediaQuery.of(context).textScaleFactor,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "grotesco",
-                                color: const Color(0xFFFF6C3F),
+                                color: primaryColor,
                               ),
                             ),
                           ),
@@ -123,7 +124,7 @@ class LoginPageState extends State<LoginPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
                   decoration: const BoxDecoration(
-                    color: Color(0xFFFF6C3F),
+                    color: primaryColor,
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(24)),
                   ),
@@ -239,7 +240,7 @@ class LoginPageState extends State<LoginPage> {
                                       fontSize: 20,
                                       fontFamily: "grotesco",
                                       fontWeight: FontWeight.bold,
-                                      color: Color(0xFFFF6C3F)),
+                                      color: primaryColor),
                                 ),
                               ),
                             ),

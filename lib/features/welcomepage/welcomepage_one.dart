@@ -1,4 +1,5 @@
 import 'package:appointiac/features/authentication/landing_page/landing_page.dart';
+import 'package:appointiac/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePageOne extends StatefulWidget {
@@ -115,9 +116,11 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
                             );
                           }
                         },
-                        child: Icon(Icons.arrow_forward_ios,
-                            size: 0.05 * screenHeight,
-                            color: const Color(0xFFFF6C3F)),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 0.05 * screenHeight,
+                          color: primaryColor,
+                        ),
                       ),
                     ),
                   ),
@@ -137,7 +140,7 @@ class _WelcomePageOneState extends State<WelcomePageOne> {
       height: 10.0,
       width: _currentPage == index ? 15.0 : 15.0,
       decoration: BoxDecoration(
-        color: _currentPage == index ? const Color(0xFFFF6C3F) : Colors.grey,
+        color: _currentPage == index ? primaryColor : Colors.grey,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
